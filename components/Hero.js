@@ -1,38 +1,36 @@
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
+  const [showCursor, setShowCursor] = useState(true);
+
+  useEffect(() => {
+    const cursorInterval = setInterval(() => {
+      setShowCursor((v) => !v);
+    }, 500);
+    return () => clearInterval(cursorInterval);
+  }, []);
+
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col justify-center items-center text-center px-6"
+      className="min-h-screen flex flex-col justify-center items-start max-w-7xl mx-auto px-6 md:px-12"
     >
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="text-5xl md:text-7xl font-bold tracking-tight text-neutral-900 dark:text-white"
-      >
-        Mauro Krekels
-      </motion.h1>
-
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.3 }}
-        className="mt-6 text-lg md:text-xl text-neutral-700 dark:text-neutral-300 max-w-xl"
-      >
-        Freelance webdeveloper en designer — ik bouw slimme, snelle en schaalbare digitale ervaringen.
-      </motion.p>
-
-      <motion.a
+      <h1 className="text-6xl md:text-8xl font-extrabold leading-tight tracking-tight max-w-3xl text-neutral-900 dark:text-white">
+        MauroKrekels<span className="text-indigo-600">.</span>
+        <span className="inline-block w-6 ml-1 align-bottom">
+          {showCursor ? "|" : " "}
+        </span>
+      </h1>
+      <p className="mt-6 max-w-xl text-neutral-700 dark:text-neutral-300 text-lg md:text-xl font-light leading-relaxed">
+        Webdeveloper, designer en creatieveling uit Nederland. Ik bouw
+        moderne websites met React en Next.js.
+      </p>
+      <a
         href="#work"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.4, delay: 0.6 }}
-        className="mt-8 inline-block px-6 py-3 bg-black text-white rounded-xl text-sm md:text-base hover:bg-neutral-800 transition-colors"
+        className="mt-10 inline-block bg-indigo-600 text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:bg-indigo-700 transition"
       >
         Bekijk mijn werk
-      </motion.a>
+      </a>
     </section>
   );
 }

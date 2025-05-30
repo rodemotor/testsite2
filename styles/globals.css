@@ -2,22 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
-
-html, body {
-  @apply bg-background font-space text-black antialiased scroll-smooth;
-  cursor: none;
+/* Custom scroll bar styling (zoals op maurokrekels.nl) */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-a {
-  transition: all 0.2s ease;
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 10px;
 }
-
-a:hover {
-  opacity: 0.7;
-}
-
-* {
-  box-sizing: border-box;
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0,0,0,0.4);
 }
