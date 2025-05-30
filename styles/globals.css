@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap');
+
+html, body {
+  @apply bg-background font-space text-black antialiased scroll-smooth;
+  cursor: none;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+* {
+  box-sizing: border-box;
+}
